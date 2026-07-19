@@ -3,8 +3,9 @@
 How to build ZMK keyboard firmware locally without Docker on apple silicon mac
 and Arch Linux.
 
-> **_Note:_** This `README.md` is only about commands and instructions — you don't
-> need to clone this repository to build yours locally.
+> [!IMPORTANT]
+> This `README.md` is only about commands and instructions — you don't need to
+> clone this repository to build yours locally.
 
 Build time difference:
 
@@ -13,8 +14,8 @@ Build time difference:
 | GitHub Actions       | ~2 minutes      | 1x             |
 | Local (Apple M1 Pro) | **~12 seconds** | **10x faster** |
 
-> GitHub action is significantly slower because every action it executed on
-> fresh VM environment.
+GitHub action is significantly slower because every action it executed on fresh
+VM environment.
 
 ## Table of Contents
 
@@ -58,11 +59,11 @@ source ~/venv/zmk/bin/activate
 pip3 install -U pip  # update the pip itself
 ```
 
-Go to [Arch linux step 3 - Install Dependencies](#3-dependencies)
-
 ---
 
 ### 3. Install Dependencies
+
+For **Arch Linux** go to [Arch Linux Step 3](#3-dependencies).
 
 ```sh
 brew install cmake ninja gperf python3 ccache qemu dtc wget openocd llvm
@@ -127,8 +128,9 @@ export ZEPHYR_SDK_INSTALL_DIR=$HOME/zephyr-sdk-0.17.0
 
 which is in `zephyr_env.sh` that gets sourced by `build.sh` when executed
 
-> **_NOTE:_** `west init -l config`, `west update`, `west zephyr-export` command
-> must be run on each zmk repo if you have them separate.
+> [!NOTE]
+> `west init -l config`, `west update`, `west zephyr-export` command must be ran
+> on each zmk repo if you have them separate.
 
 ---
 
@@ -323,8 +325,4 @@ In the `build.sh` change it to:
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 ```
 
-> Or move `board/` under `config/`.
-
----
-
-#### Happy Remapping 🎉
+Or move `board/` under `config/`.
